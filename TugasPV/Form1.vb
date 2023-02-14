@@ -1,26 +1,15 @@
-﻿Imports Newtonsoft.Json
+﻿Imports System.IO
+Imports Newtonsoft.Json
 
 Public Class Form1
     Private hargaPerHari As Integer
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim fileName As String = "data.txt"
+        Dim fileName As String = "data.json"
         Dim fileContents As String = File.ReadAllText(fileName)
-        Dim lines As String() = fileContents.Split(Environment.NewLine)
+        Dim data As Dictionary(Of String, Integer) = JsonConvert.DeserializeObject(Of Dictionary(Of String, Integer))(fileContents)
 
-        'Dim hargaPerHari As Integer = 0
-        For Each line As String In lines
-            If line.StartsWith("hargaPerHari=") Then
-                hargaPerHari = Integer.Parse(line.Split("=")(1))
-                Exit For
-            End If
-        Next
-
-        'Label1.Text = hargaPerHari.ToString()
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
+        hargaPerHari = data("hargaPerHari")
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
