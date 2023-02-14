@@ -1,4 +1,4 @@
-﻿Imports System.IO
+﻿Imports Newtonsoft.Json
 
 Public Class Form1
     Private hargaPerHari As Integer
