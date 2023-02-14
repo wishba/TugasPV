@@ -18,10 +18,12 @@ Public Class Form1
         Dim totalHari As Integer = Integer.Parse(TextBox1.Text)
         Dim result As Integer
 
+        For i As Integer = 1 To totalHari
+            result += hargaPerHari
+        Next
+
         If CheckBox1.Checked Then
-            result = (hargaPerHari * totalHari) + (supirPerHari * totalHari)
-        Else
-            result = hargaPerHari * totalHari
+            result += supirPerHari * totalHari
         End If
 
         Label1.Text = result.ToString()
