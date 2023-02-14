@@ -15,13 +15,13 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim multiplier As Integer = Integer.Parse(TextBox1.Text)
+        Dim totalHari As Integer = Integer.Parse(TextBox1.Text)
         Dim result As Integer
 
         If CheckBox1.Checked Then
-            result = (hargaPerHari * multiplier) + (supirPerHari * multiplier)
+            result = (hargaPerHari * totalHari) + (supirPerHari * totalHari)
         Else
-            result = hargaPerHari * multiplier
+            result = hargaPerHari * totalHari
         End If
 
         Label1.Text = result.ToString()
